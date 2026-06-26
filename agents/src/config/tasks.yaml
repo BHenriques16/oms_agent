@@ -1,0 +1,113 @@
+# Task configurations for local agents with small LLMs (8B) - Optimized for Qwen 2.5 / Llama 3.1
+
+demographics_task:
+  description: >
+    Your objective is to answer the following USER QUERY: "{query}"
+
+    INSTRUCTIONS:
+    1. Use the 'get_offenders_demographics' tool to retrieve the data.
+    2. Filter the tool's data to extract ONLY the details requested.
+
+    CRITICAL RULES FOR YOUR FINAL ANSWER:
+    - IF THE TOOL RETURNS "No records found.", your EXACT and ONLY output must be: "No records found for this ID."
+    - You MUST write a fluent, human-like conversational sentence.
+    - You MUST ALWAYS start your final answer with the exact words: "Based on the records, the offender..."
+    - Integrate the extracted data smoothly into the sentence (e.g., "...is a white male with a high school diploma.").
+    - NEVER repeat the prompt, the instructions, or the user's query.
+  expected_output: "A direct conversational sentence starting with 'Based on the records...'."
+  agent: demographics_specialist
+
+incarcerations_task:
+  description: >
+    Your objective is to answer the following USER QUERY: "{query}"
+
+    INSTRUCTIONS:
+    1. Use the 'get_incarcerations_data' tool to retrieve the data.
+    2. Filter the tool's data to extract ONLY the details requested.
+
+    CRITICAL RULES FOR YOUR FINAL ANSWER:
+    - IF THE TOOL RETURNS "No records found.", your EXACT and ONLY output must be: "No records found for this ID."
+    - You MUST write a fluent, human-like conversational sentence.
+    - You MUST ALWAYS start your final answer with the exact words: "Regarding the incarceration, the offender..."
+    - Integrate the extracted data smoothly into the sentence (e.g., "...is serving 5 years for robbery.").
+    - NEVER repeat the prompt, the instructions, or the user's query.
+  expected_output: "A direct conversational sentence starting with 'Regarding the incarceration...'."
+  agent: incarcerations_specialist
+
+criminal_history_task:
+  description: >
+    Your objective is to answer the following USER QUERY: "{query}"
+
+    INSTRUCTIONS:
+    1. Use the 'get_criminal_history' tool to retrieve the data.
+    2. Filter the tool's data to extract ONLY the details requested.
+
+    CRITICAL RULES FOR YOUR FINAL ANSWER:
+    - IF THE TOOL RETURNS "No records found.", your EXACT and ONLY output must be: "No records found for this ID."
+    - You MUST write a fluent, human-like conversational sentence.
+    - You MUST ALWAYS start your final answer with the exact words: "According to the criminal history..."
+    - Integrate the extracted data smoothly into the sentence.
+    - NEVER repeat the prompt, the instructions, or the user's query.
+  expected_output: "A direct conversational sentence starting with 'According to the criminal history...'."
+  agent: criminal_history_specialist
+
+supervision_task:
+  description: >
+    Your objective is to answer the following USER QUERY: "{query}"
+
+    INSTRUCTIONS:
+    1. Use the 'get_supervision_conduct' tool to retrieve the data.
+    2. Filter the tool's data to extract ONLY the details requested.
+
+    CRITICAL RULES FOR YOUR FINAL ANSWER:
+    - IF THE TOOL RETURNS "No records found.", your EXACT and ONLY output must be: "No records found for this ID."
+    - You MUST write a fluent, human-like conversational sentence.
+    - You MUST ALWAYS start your final answer with the exact words: "Regarding supervision, the offender..."
+    - Integrate the extracted data smoothly into the sentence.
+    - NEVER repeat the prompt, the instructions, or the user's query.
+  expected_output: "A direct conversational sentence starting with 'Regarding supervision...'."
+  agent: supervision_specialist
+
+outcomes_task:
+  description: >
+    Your objective is to answer the following USER QUERY: "{query}"
+
+    INSTRUCTIONS:
+    1. Use the 'get_outcomes_recidivism' tool to retrieve the data.
+    2. Filter the tool's data to extract ONLY the details requested. (Recidivism '1' means Yes, '0' means No).
+
+    CRITICAL RULES FOR YOUR FINAL ANSWER:
+    - IF THE TOOL RETURNS "No records found.", your EXACT and ONLY output must be: "No records found for this ID."
+    - You MUST write a fluent, human-like conversational sentence.
+    - You MUST ALWAYS start your final answer with the exact words: "Based on the outcome data..."
+    - Integrate the extracted data smoothly into the sentence.
+    - NEVER repeat the prompt, the instructions, or the user's query.
+  expected_output: "A direct conversational sentence starting with 'Based on the outcome data...'."
+  agent: outcomes_specialist
+
+count_task:
+  description: >
+    Your objective is to answer the following USER QUERY: "{query}"
+
+    INSTRUCTIONS:
+    1. Use the 'count_offenders' tool.
+    2. Read the query carefully and extract only the relevant filter.
+
+    EXAMPLES OF HOW TO THINK AND MAP DATA:
+    - If Query is "How many Black offenders are there?":
+      Pass race="Black", leave education_level and gang_affiliated empty.
+    - If Query is "Count offenders with a High School Diploma":
+      Pass education_level="High School Diploma", leave race and gang_affiliated empty.
+    - If Query is "Are there any gang members?":
+      Pass gang_affiliated="1", leave race and education_level empty.
+    - If Query is "How many offenders total?":
+      Leave ALL fields empty.
+
+    CRITICAL RULES FOR YOUR FINAL ANSWER:
+    - NEVER guess the number. You MUST wait for the tool's response.
+    - You MUST write a fluent, human-like conversational sentence.
+    - You MUST ALWAYS start your final answer with the exact words: "Based on the database, I found a total of..."
+    - If the tool returns 0, output exactly: "Based on the database, I found a total of 0."
+    - NEVER repeat the prompt, the instructions, or the user's query.
+  expected_output: "A short sentence stating the exact total count, starting with 'Based on the database...'."
+  agent: count_specialist

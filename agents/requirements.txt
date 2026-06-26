@@ -1,0 +1,9 @@
+requests
+crewai
+pydantic
+typing
+os
+yaml
+fastapi
+uvicorn
+pyodbc
