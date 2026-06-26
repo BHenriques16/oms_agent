@@ -1,0 +1,64 @@
+# Task 1: The Agent acts as a Researcher and Writer
+research_and_draft_task:
+  description: >
+    USER QUERY: "{user_query}"
+    
+    CRITICAL WORKFLOW RULES FOR OMS DATA:
+    0. NO ROLEPLAYING: You MUST trigger the Python tools to get real data. You are FORBIDDEN from generating an answer without executing the Search Tool first. NEVER write fake tool logs like "[Search Tool Execution]" in your text.
+    1. TOOL SELECTION & AVOID MULTI-STEP: 
+       - If you are SEARCHING for inmates based on traits (e.g., "oldest", "poor health", "male"), ONLY use the "Search Inmates Database" tool. It will auto-fetch profiles for the top results.
+       - If the user asks for ANY math, "average", "total", "sum", or global system statistics, ONLY use the "Get Global Prison Statistics" tool.
+       - ONLY use the "Get Full Inmate Profile" tool if the user provides a specific OffenderID directly OR if you need details for a specific inmate that was not auto-fetched by a previous search.
+       - NEVER call both tools at the same time for the same query.
+       - EVEN if the Search Tool only returns small amount of offenders, you can consider it a SUCCCESSFUL SEARCH.
+    2. LARGE RESULT SETS (PREVIEWS): If the user asks for "all" inmates, but the database returns a large number and only provides a "Preview of top 3", DO NOT say "No results were found". You MUST accept the preview. Write a natural response stating the total number found and summarize the few previewed inmates provided.
+    3. ZERO HALLUCINATION: NEVER invent fake names or IDs.
+    4. EMPTY DATABASE: ONLY if the tool explicitly states "0 inmates match" or "No results", you should write: "No results were found."
+    
+    INSTRUCTIONS:
+    Write a comprehensive, natural, and conversational response based strictly on the REAL data returned by the tool. DO NOT output JSON here.
+  expected_output: >
+    A natural human-readable text paragraph based strictly on real database findings or stating system limitations.
+  agent: oms_agent
+
+# Task 2: The Agent acts as a Quality Assurance Reviewer and Data Formatter
+validate_and_format_task:
+  description: >
+    You are now acting as a strict Quality Assurance and Data Formatter.
+    
+    1. READ the text generated in the previous task.
+    2. VALIDATE if it accurately answers: "{user_query}".
+    3. IDENTIFY which logical database columns were necessary to filter or calculate this answer (e.g., "HealthStatus", "Gender", "CellBlock", "SecurityLevel", "Age").
+    
+    CRITICAL FORMATTING DECISION TREE:
+    - IF the previous text contains REAL inmate data (valid numeric IDs, facility blocks):
+      Populate the "source_documents" array normally.
+    - IF the previous text states "No results were found", "cannot perform this statistical aggregation", or lacks specific valid numeric IDs:
+      You MUST leave the "source_documents" array completely EMPTY like this: [] and set "matched_documents" to 0.
+      
+    JSON SCHEMA REQUIRED:
+    {{
+      "answer": "<INSERT_THE_VALIDATED_NATURAL_TEXT_HERE>",
+      "matched_documents": <TOTAL_DOCUMENTS_AS_INT_OR_0>,
+      "source_documents": [
+        {{
+          "document_id": "<EXTRACT_OFFENDER_ID_AS_STRING>",
+          "facility": "<EXTRACT_CELL_BLOCK_AS_STRING>",
+          "excerpt": "<EXTRACT_RELEVANT_TEXT_SNIPPET_AS_STRING_OR_NULL>"
+        }}
+      ],
+      "data_sources": [
+        "ColumnName1", 
+        "ColumnName2"
+      ]
+    }}
+    
+    CRITICAL RULES:
+    - NEVER invent fake IDs just to fill the schema. Empty arrays [] are perfectly valid.
+    - "data_sources" MUST contain a list of strings representing the data columns you filtered by.
+    - You MUST output the raw JSON. Do not include markdown (like ```json) or <tool_call> tags.
+    - IMPORTANT: You MUST start your final output with the exact words "Final Answer: " followed immediately by the JSON structure.
+  expected_output: >
+    A string starting with 'Final Answer: ' followed by a perfectly formatted JSON string starting directly with the {{ character containing the validated answer, source documents, and data sources.
+  agent: oms_agent
+  context: [research_and_draft_task]

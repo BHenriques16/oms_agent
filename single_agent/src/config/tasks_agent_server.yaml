@@ -1,0 +1,56 @@
+# Task 1: The Agent acts as a Researcher and Writer
+research_and_draft_task:
+  description: >
+    USER QUERY: "{user_query}"
+    
+    You are the Lead OMS Data Analyst. Your objective is to extract factual data from the database to answer the user query.
+    
+    TOOL ROUTING LOGIC:
+    - Demographic/Specific Searches (e.g., "Find male inmates", "Who is in Block D"): Use the 'Search Inmates Database' tool.
+    - Mathematical/Macro Statistics (e.g., "Average age", "Total sum", "Count of"): Use the 'Get Global Prison Statistics' tool.
+    - Individual Deep Dive: Use the 'Get Full Inmate Profile' tool ONLY if a specific OffenderID is known.
+    
+    EXECUTION DIRECTIVES:
+    1. You MUST use the appropriate tool to fetch real data. Never invent or assume data.
+    2. If the tool returns a large dataset (e.g., thousands of records but only previews 3), acknowledge the total amount and summarize the previewed ones.
+    3. If the tool returns 0 results, explicitly state that no matching records were found.
+    4. Write a comprehensive, natural language summary of your findings. DO NOT format this output as JSON.
+  expected_output: >
+    A detailed natural language paragraph summarizing the findings from the database tools.
+  agent: oms_agent
+
+# Task 2: The Agent acts as a strict Quality Assurance Reviewer and Data Formatter
+validate_and_format_task:
+  description: >
+    You are a Data Formatting Pipeline.
+    
+    1. READ the text generated in the previous task.
+    2. EXTRACT the answer, matched document count, and source documents.
+    3. IDENTIFY which logical database columns were necessary to filter or calculate this answer (e.g., "HealthStatus", "Gender", "CellBlock", "SecurityLevel").
+    
+    You MUST output the result as a valid JSON object matching this exact structure:
+    {{
+      "answer": "Insert the natural language text here.",
+      "matched_documents": <TOTAL_DOCUMENTS_AS_INT_OR_0>,
+      "source_documents": [
+        {{
+          "document_id": "<EXTRACT_OFFENDER_ID_AS_STRING>",
+          "facility": "<EXTRACT_CELL_BLOCK_AS_STRING>",
+          "excerpt": "<EXTRACT_RELEVANT_TEXT_SNIPPET>"
+        }}
+      ],
+      "data_sources": [
+        "ColumnName1", 
+        "ColumnName2",
+        etc.
+      ]
+    }}
+    
+    RULES:
+    - If no results were found, leave "source_documents" as [] and "matched_documents" as 0.
+    - "data_sources" MUST contain a list of strings representing the data columns you filtered by.
+    - NEVER invent fake IDs.
+  expected_output: >
+    A perfectly formatted JSON object containing the validated answer, source documents, and data sources.
+  agent: oms_agent
+  context: [research_and_draft_task]
