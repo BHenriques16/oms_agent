@@ -2,37 +2,35 @@
   "oms_agent_tests": {
     "test_categories": [
       {
-        "category_name": "categorical_demographic_filters",
-        "objective": "Test the new exact-match filters for demographic and health data.",
-        "queries": [
-          "Find all male inmates who currently have a 'Poor' health status.",
-          "Are there any Hispanic inmates with 'Some College' education in the Medium security level?"
-        ]
+        "id": 1,
+        "query": "Where is inmate 1026 currently located (wing/cell/bed)?"
       },
       {
-        "category_name": "rich_text_keyword_search",
-        "objective": "Verify if the agent correctly uses the offense_keyword and behavioral_keyword parameters.",
-        "queries": [
-          "Can you find inmates who have 'aggressive' behavior noted in their files?",
-          "Search for inmates whose detailed offense description mentions the word 'stolen'."
-        ]
+        "id": 2,
+        "query": "Show me the full identification of inmate number 12345."
       },
       {
-        "category_name": "data_diet_multi_step",
-        "objective": "Force the agent to use Search to find an ID, then Profile to read the long text fields that were excluded from Search.",
-        "queries": [
-          "Find the oldest inmate with a 'Poor' health status. After finding them, read their full profile and summarize their exact behavioral notes.",
-          "Look up the inmate with the highest number of disciplinary incidents. What exactly does their full detailed offense description say?"
-        ]
+        "id": 3,
+        "query": "Is inmate 1002 eligible for parole, and on what date?"
       },
       {
-        "category_name": "stats_guardrail_stress_test",
-        "objective": "Stress test: The agent must handle requests for averages on categories the GlobalStatsTool does NOT support.",
-        "queries": [
-          "What is the average commissary balance strictly for inmates with a 'Poor' health status?",
-          "Can you give me the total number of disciplinary incidents specifically for African American inmates?"
-        ]
-      }
+        "id": 4,
+        "query": "Is inmate 1032 enrolled in education, and at what level?"
+      },
+      {
+        "id": 5,
+        "query": "What incidents has inmate 1032 been involved in?"
+      },
+     {
+        "id": 6,
+        "domain": "Haluccinations",
+        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status."
+     },
+     {
+        "id": 7,
+        "domain": "Haluccinations",
+        "query": "Give me the full profile details for the inmate with OffenderID 999999999."
+     }
     ]
   }
 }

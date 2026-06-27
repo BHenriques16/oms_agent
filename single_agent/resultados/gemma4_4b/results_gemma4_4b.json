@@ -3,12 +3,12 @@
     "test_categories": [
       {
         "id": 1,
-        "query": "Where is inmate 1026 currently located (wing/cell/bed)?"    
+        "query": "Where is inmate 1026 currently located (wing/cell/bed)?"  
       },
       {
         "id": 2,
         "query": "Show me the full identification of inmate number 12345."
-      },
+    },
       {
         "id": 3,
         "query": "Is inmate 1002 eligible for parole, and on what date?"

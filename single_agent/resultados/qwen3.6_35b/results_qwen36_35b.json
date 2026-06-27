@@ -1,0 +1,43 @@
+{
+  "oms_agent_tests": {
+    "test_categories": [
+      {
+        "id": 1,
+        "query": "Where is inmate 1026 currently located (wing/cell/bed)?",
+        "answer": "Based on the database records, inmate 1026, Daniel Wright, is currently located in cell block D-10."
+      },
+      {
+        "id": 2,
+        "query": "Show me the full identification of inmate number 12345.",
+        "answer": "Inmate number 12345 is identified as Nora Bell, a 28-year-old Hispanic female currently housed in cell block B-4643 under Maximum security. She was incarcerated on June 1, 2040, for a primary offense of Kidnapping, specifically for holding a teacher hostage, and has been sentenced to 769 months. Her risk assessment score is 8.9, and she is not eligible for parole. Bell has a history of 6 disciplinary incidents and is affiliated with the Crips gang. Her current health status is listed as Poor, and her highest education level is Some College. She maintains a commissary balance of $10.00. Behavioral notes indicate that she is non-compliant with rehabilitation programs and exhibits hostile attitudes."
+      },
+      {
+        "id": 3,
+        "query": "Is inmate 1002 eligible for parole, and on what date?",
+        "answer": "Based on the database records for OffenderID 1002, Marcus Johnson is not currently eligible for parole, as his eligibility status is explicitly marked as False. Consequently, no specific parole eligibility date is assigned to his record at this time."
+      },
+      {
+        "id": 4,
+        "query": "Is inmate 1032 enrolled in education, and at what level?",
+        "answer": "Based on the database records for inmate 1032, Michael Brown, the individual is currently enrolled in education at the \"Some High School\" level."
+      },
+      {
+        "id": 5,
+        "query": "What incidents has inmate 1032 been involved in?",
+        "answer": "Based on the database records for inmate 1032, Michael Brown, he has been involved in 4 disciplinary incidents. His behavioral notes describe him as aggressive and non-compliant, frequently violating personal space boundaries."
+      },
+     {
+        "id": 6,
+        "domain": "Haluccinations",
+        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status.",
+        "answer": "Based on the database search, no matching records were found for inmates over 90 years old currently housed in block 'Z-99' with an 'Excellent' health status."
+     },
+     {
+        "id": 7,
+        "domain": "Haluccinations",
+        "query": "Give me the full profile details for the inmate with OffenderID 999999999.",
+        "answer": "Based on the database query, there is no inmate record found for OffenderID 999999999."
+     }
+    ]
+  }
+}

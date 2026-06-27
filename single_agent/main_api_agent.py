@@ -43,20 +43,14 @@ API_ERROR_RESPONSES = {
 
 class UserQuery(BaseModel):
     query: str
-    min_age: Optional[int] = Field(None, description="Minimum age filter (integer).")
-    max_age: Optional[int] = Field(None, description="Maximum age filter (integer).")
 
 
 class QueryUseCase1(BaseModel):
     query: str = "Show me the full identification of inmate number 12345."
-    min_age: Optional[int] = Field(None, description="Minimum age filter (integer).")
-    max_age: Optional[int] = Field(None, description="Maximum age filter (integer).")
 
 
 class QueryUseCase2(BaseModel):
     query: str = "What incidents has inmate 1032 been involved in?"
-    min_age: Optional[int] = Field(None, description="Minimum age filter (integer).")
-    max_age: Optional[int] = Field(None, description="Maximum age filter (integer).")
 
 
 # Server handles defaults for metadata to prevent LLM hallucinations
@@ -111,10 +105,6 @@ def execute_agent_process(payload: BaseModel):
         agent_inputs = {
             "user_query": payload.query,
         }
-        if hasattr(payload, "min_age") and payload.min_age is not None:
-            agent_inputs["min_age"] = payload.min_age
-        if hasattr(payload, "max_age") and payload.max_age is not None:
-            agent_inputs["max_age"] = payload.max_age
 
         # Execute the agent analytical reasoning process
         raw_response = oms_crew.kickoff(inputs=agent_inputs)
@@ -134,7 +124,6 @@ def execute_agent_process(payload: BaseModel):
         if json_match:
             clean_json_text = json_match.group(0).strip()
 
-            # --- ESCUDO PARA MODELOS PEQUENOS ---
             # Remove chavetas duplas no início e no fim, caso o LLM faça "mimic" do YAML
             while clean_json_text.startswith("{{"):
                 clean_json_text = clean_json_text[1:]
