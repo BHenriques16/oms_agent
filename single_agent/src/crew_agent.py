@@ -14,9 +14,9 @@ from src.tools.tools_agent import (
 
 # Local LLM configuration using Ollama
 llm_local = LLM(
-    model="ollama/qwen2.5:7b",
+    # model="ollama/qwen2.5:7b",
     # model="ollama/qwen2.5:14b",
-    # model="ollama/gemma4:e4b",
+    model="ollama/gemma4:e4b",
     # model="ollama/llama3.1",
     base_url="http://127.0.0.1:11434",
     api_key="NA",

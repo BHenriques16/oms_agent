@@ -3,33 +3,40 @@
     "test_categories": [
       {
         "id": 1,
-        "query": "Where is inmate 1026 currently located (wing/cell/bed)?"  
+        "query": "Where is inmate 1026 currently located (wing/cell/bed)?",
+        "answer": "Inmate 1026 is currently located in cell block D-10."
       },
       {
         "id": 2,
-        "query": "Show me the full identification of inmate number 12345."
+        "query": "Show me the full identification of inmate number 12345.",
+        "answer": "The full identification for inmate 12345 is Nora Bell. She is a 28-year-old Hispanic female housed in cell B-4643. Her security level is Maximum, her health status is Poor, and she has accumulated 6 disciplinary incidents."
     },
       {
         "id": 3,
-        "query": "Is inmate 1002 eligible for parole, and on what date?"
+        "query": "Is inmate 1002 eligible for parole, and on what date?",
+        "answer": "Inmate 1002 is currently not eligible for parole. The provided context does not specify a date of eligibility."
       },
       {
         "id": 4,
-        "query": "Is inmate 1032 enrolled in education, and at what level?"
+        "query": "Is inmate 1032 enrolled in education, and at what level?",
+        "answer": "Yes, based on the profile for inmate 1032, Michael Brown, he has achieved an education level of Some High School."
       },
       {
         "id": 5,
-        "query": "What incidents has inmate 1032 been involved in?"
+        "query": "What incidents has inmate 1032 been involved in?",
+        "answer": "Inmate Michael Brown (ID: 1032) has been involved in 4 disciplinary incidents. His primary offense was Arson, which involved him deliberately igniting a warehouse to cover up signs of embezzlement."
       },
      {
         "id": 6,
         "domain": "Haluccinations",
-        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status."
+        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status.",
+        "answer": "No inmates were found who are over 90 years old, housed in block 'Z-99', and have an 'Excellent' health status."
      },
      {
         "id": 7,
         "domain": "Haluccinations",
-        "query": "Give me the full profile details for the inmate with OffenderID 999999999."
+        "query": "Give me the full profile details for the inmate with OffenderID 999999999.",
+        "answer": "No results were found for OffenderID 999999999."
      }
     ]
   }

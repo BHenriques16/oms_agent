@@ -3,33 +3,40 @@
     "test_categories": [
       {
         "id": 1,
-        "query": "Where is inmate 1026 currently located (wing/cell/bed)?"    
+        "query": "Where is inmate 1026 currently located (wing/cell/bed)?",
+        "answer": "Inmate 1026 is located in Cell Block D-4."
       },
       {
         "id": 2,
-        "query": "Show me the full identification of inmate number 12345."
+        "query": "Show me the full identification of inmate number 12345.",
+        "answer": "The full identification of inmate number 12345 is as follows:\n\n- Name: Nora Bell\n- Age: 28 years old\n- Gender: Female\n- Ethnicity: Hispanic\n- Security Level: Maximum\n- Cell Block: B-4643\n- Primary Offense: Kidnapping\n- Incarceration Date: June 1, 2040\n- Sentence Length: 769 months (approximately 64 years)\n- Disciplinary Incidents: 6\n- Gang Affiliation: Crips\n- Health Status: Poor\n- Education Level: Some College\n- Risk Assessment Score: 8.9 out of 10.0\n- Parole Eligibility: Not eligible\n- Commissary Balance: $10.00\n\nBehavioral Notes indicate that Nora Bell is non-compliant with rehabilitation programs and exhibits hostile attitudes."
       },
       {
         "id": 3,
-        "query": "Is inmate 1002 eligible for parole, and on what date?"
+        "query": "Is inmate 1002 eligible for parole, and on what date?",
+        "answer": "Inmate 1002 is not eligible for parole. His parole eligibility status is 'False', and he will remain at the Maximum Security Level in cell block D-4 until his sentence expires on November 20, 2035."
       },
       {
         "id": 4,
-        "query": "Is inmate 1032 enrolled in education, and at what level?"
+        "query": "Is inmate 1032 enrolled in education, and at what level?",
+        "answer": "Inmate 1032, Michael Brown, is enrolled in education at the Some High School level."
       },
       {
         "id": 5,
-        "query": "What incidents has inmate 1032 been involved in?"
+        "query": "What incidents has inmate 1032 been involved in?",
+        "answer": "Inmate 1032, Michael Brown, has been involved in 4 disciplinary incidents. His behavioral notes indicate that he is aggressive and non-compliant, often violating personal space boundaries."
       },
      {
         "id": 6,
         "domain": "Haluccinations",
-        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status."
+        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status.",
+        "answer": "No results were found for inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status."
      },
      {
         "id": 7,
         "domain": "Haluccinations",
-        "query": "Give me the full profile details for the inmate with OffenderID 999999999."
+        "query": "Give me the full profile details for the inmate with OffenderID 999999999.",
+        "answer": "There is no inmate record found with the OffenderID 999999999."
      }
     ]
   }

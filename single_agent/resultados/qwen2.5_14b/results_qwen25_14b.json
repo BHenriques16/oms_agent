@@ -3,33 +3,40 @@
     "test_categories": [
       {
         "id": 1,
-        "query": "Where is inmate 1026 currently located (wing/cell/bed)?"    
+        "query": "Where is inmate 1026 currently located (wing/cell/bed)?",
+        "answer": "inmate 1026 is currently located in cell block D-10"   
       },
       {
         "id": 2,
-        "query": "Show me the full identification of inmate number 12345."
+        "query": "Show me the full identification of inmate number 12345.",
+        "answer": "The full identification details for inmate number 12345 are as follows:\n\n- Name: Nora Bell\n- Age: 28\n- Gender: Female\n- Ethnicity: Hispanic\n- Security Level: Maximum\n- Cell Block: B-4643\n- Primary Offense: Kidnapping\n- Incarceration Date: June 1, 2040\n- Sentence Length (Months): 769\n- Disciplinary Incidents: 6\n- Gang Affiliation: Crips\n- Health Status: Poor\n- Education Level: Some College\n- Risk Assessment Score: 8.9\n- Parole Eligibility: False\n- Commissary Balance: $10.00\n- Offense Description: Held a teacher hostage.\n- Behavioral Notes: Non-compliant with rehabilitation programs and exhibits hostile attitudes."
       },
       {
         "id": 3,
-        "query": "Is inmate 1002 eligible for parole, and on what date?"
+        "query": "Is inmate 1002 eligible for parole, and on what date?",
+        "answer": "Inmate 1002, Marcus Johnson, is not eligible for parole. His eligibility status is listed as False."
       },
       {
         "id": 4,
-        "query": "Is inmate 1032 enrolled in education, and at what level?"
+        "query": "Is inmate 1032 enrolled in education, and at what level?",
+        "answer": "Inmate 1032 is enrolled in education at the level of 'Some High School'."
       },
       {
         "id": 5,
-        "query": "What incidents has inmate 1032 been involved in?"
+        "query": "What incidents has inmate 1032 been involved in?",
+        "answer": "Inmate Michael Brown (OffenderID: 1032) has been involved in 4 disciplinary incidents since his incarceration."
       },
      {
         "id": 6,
         "domain": "Haluccinations",
-        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status."
+        "query": "Find all inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status.",
+        "answer": "No results were found for inmates over 90 years old who are currently housed in block 'Z-99' and have an 'Excellent' health status."
      },
      {
         "id": 7,
         "domain": "Haluccinations",
-        "query": "Give me the full profile details for the inmate with OffenderID 999999999."
+        "query": "Give me the full profile details for the inmate with OffenderID 999999999.",
+        "answer": "No results were found for the inmate with OffenderID 999999999."
      }
     ]
   }
