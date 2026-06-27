@@ -2,7 +2,7 @@
   "oms_presentation_demo": {
     "metadata": {
       "description": "Testing guide for the agents",
-      "target_models": ["Local Edge AI (8B)", "Cloud LLM (70B+)"]
+      "target_models": ["Local LLM"]
     },
     "agents": [
       {
@@ -12,8 +12,8 @@
           {
             "scenario": "Comprehensive Profile Extraction",
             "query": "Can you give me the full demographic profile of offender ID 5?",
-            "answer": "Based on the records, the offender is a white male with a high school diploma and has no gang affiliation, and he has 2 dependents.",
-            "execution_time_seconds": 5.75
+            "answer": "Based on the records, the offender with ID 5 is a white male who has achieved a high school diploma and is not affiliated with any gangs.",
+            "execution_time_seconds": 9.38
           }
         ]
       },
@@ -24,8 +24,8 @@
           {
             "scenario": "Sentence Summary",
             "query": "Give me all incarcerations details for offender ID 8.",
-            "answer": "Regarding the incarceration, the offender with ID 8 is serving 1-2 years for a property offense and is 48 or older. They also have a condition related to mental health or substance abuse.",
-            "execution_time_seconds": 5.69
+            "answer": "Regarding the incarceration, the offender with ID 8 is currently serving between 1 and 2 years for a property offense.",
+            "execution_time_seconds": 9.73
           }
         ]
       },
@@ -36,8 +36,8 @@
           {
             "scenario": "Full Background Check",
             "query": "Summarize the prior criminal history for offender ID 2.",
-            "answer": "According to the criminal history for Offender ID 2, there is one felony arrest episode and two misdemeanor arrest episodes. Additionally, there is a record of a violent conviction, and the individual has had their parole revoked previously but not probation.",
-            "execution_time_seconds": 5.15
+            "answer": "According to the criminal history, this offender has a record of one felony arrest and two misdemeanor arrests, along with one violent conviction; furthermore, they have prior revocations for parole but no records of probation revocations.",
+            "execution_time_seconds": 22.3
           }
         ]
       },
@@ -48,8 +48,8 @@
           {
             "scenario": "Conduct Audit",
             "query": "What is the overall supervision conduct for incarceration ID 10?",
-            "answer": "Regarding supervision, the offender with Incarceration ID 10 has been on a Standard level of supervision and has no delinquency reports. They have attended all required program sessions and have not violated their electronic monitoring, failed to report, or moved without permission.",
-            "execution_time_seconds": 6.71
+            "answer": "Regarding supervision, the offender has maintained a Standard level of supervision for this incarceration ID. They have had zero delinquency reports and attended six programs, with no recorded violations related to electronic monitoring, failing to report, or moving without permission.",
+            "execution_time_seconds": 11.34
           }
         ]
       },
@@ -60,8 +60,8 @@
           {
             "scenario": "Post-Release Summary",
             "query": "What are the post-release outcomes for offender ID 9?",
-            "answer": "Based on the outcome data for Offender ID 9, there is no record of recidivism within three years.",
-            "execution_time_seconds": 5.16
+            "answer": "Based on the outcome data, offender ID 9 did not commit new crimes within three years of release, and they are not exempt from employment.",
+            "execution_time_seconds": 34.15
           }
         ]
       },
@@ -73,14 +73,14 @@
           {
             "scenario": "Categorical Enum Mapping",
             "query": "How many offenders have a high school diploma?",
-            "answer": "Based on the database, I found a total of 3 offenders with a high school diploma.",
-            "execution_time_seconds": 4.19
+            "answer": "Based on the database, I found a total of 3 offenders who have a high school diploma.",
+            "execution_time_seconds": 29.78 
           },
           {
             "scenario": "Multi-Parameter Stress Test",
             "query": "How many Black offenders are not gang affiliated and have Some College education?",
-            "answer": "Based on the database, I found a total of 2 Black offenders who are not gang affiliated and have Some College education.",
-            "execution_time_seconds": 5.18
+            "answer": "Based on the database, I found a total of 2.",
+            "execution_time_seconds": 9.57
           }
         ]
       },
@@ -93,15 +93,16 @@
             "scenario": "ID Out of Bounds",
             "endpoint": "/agent/demographics",
             "query": "What is the race of offender ID 99?",
-            "answer": "Based on the records, no race information was found for this ID.",
-            "execution_time_seconds": 4.47       
+            "answer": "Based on the records, no records found for this ID.",
+            "execution_time_seconds": 9.5
+       
           },
           {
             "scenario": "Unsupported Parameter Injection",
             "endpoint": "/agent/demographics",
             "query": "What offenders have blue eyes?",
-            "answer": "Based on the records, no offenders with blue eyes were found in the database.",
-            "execution_time_seconds": 1.82          
+            "answer": "No records found",
+            "execution_time_seconds": 27.6          
           }
         ]
       }

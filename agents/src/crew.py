@@ -16,8 +16,8 @@ from src.tools.custom_tool import (
 # local LLm configuration
 llm_local = LLM(
     # model="ollama/llama3.1",
-    model="ollama/qwen2.5:7b",
-    # model ="ollama/qwen2.5:14b",
+    # model="ollama/qwen2.5:7b",
+    model="ollama/qwen2.5:14b",
     # model ="ollama/gemma4:e4b",
     base_url="http://127.0.0.1:11434",
     api_key="NA",
