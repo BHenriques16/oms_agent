@@ -1,6 +1,6 @@
 # OMS AI Multi-Agent System
 
-Horus is a multi-agent AI ecosystem built with **CrewAI** designed for the extraction, analysis of specifich fields, statistical counting and criminal data.
+The purpose of this project is to build a multi-agent AI ecosystem on offender management systems with **CrewAI** designed for the extraction, analysis of specifich fields, statistical counting and criminal data.
 
 ## Tech Stack
 
@@ -13,9 +13,9 @@ Horus is a multi-agent AI ecosystem built with **CrewAI** designed for the extra
 ## Project Structure
 
 ```text
-horus/
+agents/
+├── results/                        # Agent tests and results
 ├── src/
-│   └── horus_agents/
 │       ├── config/                 # YAML configurations for Agents and Tasks
 │       │   ├── agents.yaml         # Agent persona and constraint definitions
 │       │   ├── tasks.yaml          # Agent tasks
@@ -26,7 +26,6 @@ horus/
 ├── main_api.py                     # Entry point for the Agentic API
 ├── db_api.py                       # Database abstraction layer (Middleware)
 ├── requirements.txt                # Project dependencies
-└── pyproject.toml                  # Modern Python build configuration
 ```
 
 ## Usage Guide
@@ -92,9 +91,9 @@ You can now send POST requests to officers. Example of how to check an inmate's 
 
 # General Inquiries OMS AI Agent
 
-Horus is an Agentic API ecosystem built with **CrewAI** and **FastAPI**, designed for the extraction, analytical reasoning, and statistical formatting of demographic and criminal data. 
+The purpose of this project is to build a single-agent AI ecosystem on offender management systems with **CrewAI** designed for the extraction, analysis of specifich fields, statistical counting and criminal data.
 
-Transitioning from a multi-agent framework to a **Universal Agent Architecture**, Horus acts as an intelligent bridge between natural language queries and structured SQL Server databases. It is optimized to run seamlessly on local hardware (e.g., Ubuntu Linux environments using Ollama) with strict enforcement of JSON structured outputs.
+Transitioning from a multi-agent framework to a **General Inquiries Agent Architecture**, the agent acts as an intelligent bridge between natural language queries and structured SQL Server databases. It is optimized to run seamlessly on local hardware with strict enforcement of JSON structured outputs.
 
 The system is architected for flexibility, allowing it to run seamlessly on local hardware (smaller LLMs) or high-performance environments (Larger LLMs).
 
@@ -117,9 +116,9 @@ The project implements a "Hybrid Prompting" strategy to handle different hardwar
 ## Project Structure
 
 ```text
-horus/
+single_agent/
+├── results/                              # Agent tests and results
 ├── src/
-│   └── horus_agents/
 │       ├── config/
 │       │   ├── agents.yaml               # Agent persona and constraint definitions
 │       │   └── tasks_agent_local.yaml    # Universal routing and structured formatting tasks for local mode
@@ -131,4 +130,5 @@ horus/
 ├── db_api_agent.py                       # FastAPI entry point, endpoint routing, and Regex JSON parser for connection to the artificial database
 ├── main_api_agent.py                     # FastAPI entry point, endpoint routing, and Regex JSON parser
 ├── requirements.txt                      # Project dependencies
-└── pyproject.toml                        # Modern Python build configuration
+├── .gitignore                            # Files to be ignored
+└── Readme.md                             # Project Readme
