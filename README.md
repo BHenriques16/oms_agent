@@ -1,4 +1,4 @@
-# OMS AI - Multi-Agent System
+# OMS AI Multi-Agent System
 
 Horus is a multi-agent AI ecosystem built with **CrewAI** designed for the extraction, analysis of specifich fields, statistical counting and criminal data.
 
@@ -90,7 +90,7 @@ You can now send POST requests to officers. Example of how to check an inmate's 
 ```
 
 
-# Universal OMS AI Gateway
+# General Inquiries OMS AI Agent
 
 Horus is an Agentic API ecosystem built with **CrewAI** and **FastAPI**, designed for the extraction, analytical reasoning, and statistical formatting of demographic and criminal data. 
 
